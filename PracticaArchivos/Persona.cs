@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticaArchivos
 {
+    [Serializable]
     internal class Persona
     {
         private string nombre;

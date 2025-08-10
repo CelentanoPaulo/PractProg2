@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticaArchivos
 {
+    [Serializable]
     internal class Sistema
     {
         private List<Persona> listaPersona=new List<Persona>(); 
