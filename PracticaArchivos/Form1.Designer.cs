@@ -37,6 +37,8 @@
             this.btnAbrir = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lbMostrar = new System.Windows.Forms.ListBox();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCrear
@@ -83,12 +85,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(262, 201);
+            this.btnGuardar.Location = new System.Drawing.Point(30, 341);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(87, 41);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAbrir
             // 
@@ -111,11 +114,33 @@
             this.lbMostrar.Size = new System.Drawing.Size(313, 342);
             this.lbMostrar.TabIndex = 8;
             // 
+            // btnImportar
+            // 
+            this.btnImportar.Location = new System.Drawing.Point(211, 205);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(97, 37);
+            this.btnImportar.TabIndex = 9;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(211, 248);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(97, 37);
+            this.btnExportar.TabIndex = 10;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 413);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.lbMostrar);
             this.Controls.Add(this.btnAbrir);
             this.Controls.Add(this.btnGuardar);
@@ -144,6 +169,8 @@
         private System.Windows.Forms.Button btnAbrir;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox lbMostrar;
+        private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.Button btnExportar;
     }
 }
 

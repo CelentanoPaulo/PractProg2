@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,63 @@ namespace PracticaArchivos
             BinaryFormatter bf = new BinaryFormatter();
             bf.Serialize(fs, miSistema);
             fs.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FileStream fs = null;
+            StreamReader sr= null;
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string ubi = ofd.FileName;
+                    fs = new FileStream(ubi, FileMode.Open, FileAccess.Read);
+                    sr= new StreamReader(fs);
+                    string linea = "";
+                    string[] vector;
+                    while (!sr.EndOfStream)
+                    {
+                        linea = sr.ReadLine();
+                        vector = linea.Split(';');
+                        string nombre = vector[0];
+                        long dni = Convert.ToInt64(vector[1]);
+                        miPersona = new Persona(nombre, dni);
+                        miSistema.AgregarPersona(miPersona);
+
+                        foreach (Persona p in miSistema.VerListaPersona())
+                        {
+                            lbMostrar.Items.Add("Nombre: " + p.Nombre + " Dni: " + p.Dni);
+                        }
+
+
+                    }
+                    
+                }
+              
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al importar el archivo");
+            }
+            finally
+            {
+                sr.Close();
+                fs.Close();
+
+            }
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
